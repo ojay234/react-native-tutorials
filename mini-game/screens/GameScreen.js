@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Alert, StyleSheet, Text, View } from "react-native";
-import { Ionicons} from "@expo/vector-icons"
+import { Ionicons } from "@expo/vector-icons";
 
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
@@ -30,6 +30,11 @@ function GameScreen({ userNumber, onGameOver }) {
       onGameOver();
     }
   }, [currentGuess, userNumber, onGameOver]);
+
+  useEffect(() => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  }, []);
 
   function nextGuessHandler(direction) {
     if (
