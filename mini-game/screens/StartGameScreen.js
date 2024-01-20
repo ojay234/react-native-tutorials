@@ -66,6 +66,7 @@ function StartGameScreen({ onPickNumber }) {
 
 export default StartGameScreen;
 
+
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,

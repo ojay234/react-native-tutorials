@@ -7,7 +7,7 @@ import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
-import GuessLogItem from "../components/game/GuessLogItem"
+import GuessLogItem from "../components/game/GuessLogItem";
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -63,7 +63,7 @@ function GameScreen({ userNumber, onGameOver }) {
     setGuessRounds((prevGuessRounds) => [newRndNumber, ...prevGuessRounds]);
   }
 
-  const guessRoundsListLength = guessRounds.length
+  const guessRoundsListLength = guessRounds.length;
 
   return (
     <View style={styles.screen}>
@@ -89,7 +89,12 @@ function GameScreen({ userNumber, onGameOver }) {
       <View style={styles.listContainer}>
         <FlatList
           data={guessRounds}
-          renderItem={(itemData) => <GuessLogItem roundNumber={guessRoundsListLength - itemData.index} guess={itemData.item} />}
+          renderItem={(itemData) => (
+            <GuessLogItem
+              roundNumber={guessRoundsListLength - itemData.index}
+              guess={itemData.item}
+            />
+          )}
           keyExtractor={(item) => item}
         />
       </View>
@@ -103,6 +108,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 12,
+    alignItems: "center",
   },
   instructionText: {
     marginBottom: 12,
@@ -115,6 +121,6 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    padding: 16
-  }
+    padding: 16,
+  },
 });
